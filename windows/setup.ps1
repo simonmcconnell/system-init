@@ -35,10 +35,14 @@ function Install-PowerShellModule {
     }
 }
 
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
 Install-Scoop
+
+scoop bucket add extras
+
 Install-FromScoop 'pwsh'
 Install-FromScoop 'git'
-
 Install-FromScoop '7zip'
 Install-FromScoop 'vscode'
 Install-FromScoop 'windows-terminal'
