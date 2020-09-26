@@ -1,7 +1,3 @@
-function Install-Powershell7 {
-    msiexec.exe /package PowerShell-7.0.3-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ENABLE_PSREMOTING=1 REGISTER_MANIFEST=1
-}
-
 function Install-Scoop {
     Set-ExecutionPolicy RemoteSigned -scope CurrentUser
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
@@ -39,11 +35,8 @@ function Install-PowerShellModule {
     }
 }
 
-
-Install-Powershell7
-
 Install-Scoop
-
+Install-FromScoop 'pwsh'
 Install-FromScoop 'git'
 
 Install-FromScoop '7zip'
