@@ -3,16 +3,6 @@ function Install-Scoop {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
-function Install-FromScoop {
-    param(
-        [string]
-        [Parameter(Mandatory = $true)]
-        $PackageName
-    )
-
-    scoop install $PackageName
-}
-
 function Install-PowerShellModule {
     param(
         [string]
@@ -41,22 +31,22 @@ Install-Scoop
 
 scoop bucket add extras
 
-Install-FromScoop 'pwsh'
-Install-FromScoop 'git'
-Install-FromScoop '7zip'
-Install-FromScoop 'vscode'
-Install-FromScoop 'windows-terminal'
-Install-FromScoop 'erlang'
-Install-FromScoop 'elixir'
-Install-FromScoop 'curl'
-Install-FromScoop 'calibre'
-Install-FromScoop 'slack'
-Install-FromScoop 'autohotkey'
-Install-FromScoop 'megasync'
-Install-FromScoop 'picpick'
-Install-FromScoop 'vcxsrv'
-Install-FromScoop 'filezilla-server'
-Install-FromScoop 'posh-git'
-Install-FromScoop 'oh-my-posh'
+scoop install 7zip
+scoop install pwsh
+scoop install git
+scoop install vscode
+scoop install vcredist2019
+scoop install windows-terminal
+scoop install elixir
+scoop install curl
+scoop install calibre
+scoop install slack
+scoop install autohotkey
+scoop install megasync
+scoop install picpick
+scoop install vcxsrv
+scoop install filezilla-server
+scoop install posh-git
+scoop install oh-my-posh
 
-Install-PowerShellModule 'PSReadLine' { }
+# Install-PowerShellModule 'PSReadLine' { }
