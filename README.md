@@ -17,4 +17,20 @@ mostly stolen from [aaronpowell's repo](https://github.com/aaronpowell/system-in
 1. run install script
    `curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/wsl/setup.sh | bash`
 
-2. install languages with [asdf]()
+2. install languages with [asdf](https://asdf-vm.com/)
+    
+    asdf plugin list
+    
+    asdf list all elixir
+    
+    asdf install erlang 23.1
+    asdf install elixir 1.10.4-otp-23
+    asdf install nodejs
+    asdf install dotnet-core
+    asdf install python
+    asdf install golang
+    
+    asdf global erlang 23.1
+    asdf global elixir 1.10.4
+    asdf global python 3.8.5 2.7.18
+    
