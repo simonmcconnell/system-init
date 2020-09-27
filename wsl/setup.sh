@@ -56,6 +56,9 @@ install_devtools() {
     asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
     asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
     asdf plugin-add python
+    
+    # Import the Node.js release team's OpenPGP keys to main keyring:
+    bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
     echo -e '\e[0;33myou can install erlang/elixir/nodejs/dotnet-core/go with `asdf install <lang> <version>`\e[0m'
     echo -e '\e[0;33mspecify the OTP version with elixir: `asdf install elixir 1.10.4-otp-23`\e[0m'
