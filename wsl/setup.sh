@@ -99,17 +99,19 @@ install_devtools() {
 }
 
 install_jetbrainsmono() {
-    curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip --output ~/tmp/setup-base/jetbrainsmono.zip
-    unzip ~/tmp/setup-base/jetbrainsmono.zip -d ~/.local/share/fonts
-    fc-cache -f -v
+  sudo apt install fontconfig
+  curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip --output $1/jetbrainsmono.zip
+  unzip $1/jetbrainsmono.zip -d $1/jetbrainsmono
+  sudo mkdir -p /usr/share/fonts/truetype/jetbrainsmono && sudo cp $1/jetbrainsmono/ttf/*.ttf "$_"
+  sudo fc-cache -f -v
 }
 
 echo -e '\e[0;33mPreparing to setup a linux machine from a base install\e[0m'
 
-tmpDir=~/tmp/setup-base
+tmpDir=/tmp/setup-base
 
 if [ ! -d "$tmpDir" ]; then
-    mkdir --parents $tmpDir
+    mkdir -p $tmpDir
 fi
 
 ## General updates
@@ -126,6 +128,6 @@ install_git
 source "./setup-shell.sh"
 install_devtools
 install_docker
-install_jetbrainsmono
+install_jetbrainsmono $tmpDir
 
 rm -rf $tmpDir
