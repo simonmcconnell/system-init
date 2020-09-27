@@ -3,6 +3,7 @@
 ## Windows
 
 - enable wsl `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+- install [vscode](https://code.visualstudio.com/Download)
 - install office
 - install [ScanSnap Home](http://scansnap.fujitsu.com/global/dl/win-ix500.html)
 - install ubuntu
