@@ -7,6 +7,22 @@ function Install-Scoop {
     }
 }
 
+function Install-VSCode {
+    $installerFile = "vscode-install.exe"
+    $installerPath = (Join-Path $env:TEMP $installerFile)
+    $url = "https://vscode-update.azurewebsites.net/latest/win32-x64/stable"
+
+    Write-Verbose "Downloading vscode..."
+    iwr -useb $url -OutFile $installerPath
+    
+    # Install with the context menu, file association, and add to path options (and don't run code after install:
+    Write-Verbose "Installing vscode to $installerPath..."
+    $args = "/SILENT /MERGETASKS=`"addcontextmenufiles,addcontextmenufolders,addtopath,associatewithfiles,!desktopicon,!runcode`""
+    Start-Process $installerPath -ArgumentList $args -Wait
+    
+    Remove-Item $installerPath -Force
+}
+
 # scoop
 Install-Scoop
 scoop bucket add extras
@@ -15,13 +31,11 @@ scoop bucket add extras
 scoop install pwsh posh-git oh-my-posh
 
 # utils
-scoop install 7zip coreutils curl less sudo 
+scoop install 7zip coreutils curl less sudo grep
 
 # devtools
 scoop install git vcredist2019 windows-terminal vcxsrv openssh # vscode
-
-# add vscode to context menus
-# $HOME\scoop\apps\current\vscode-install-context.reg
+Install-VSCode
 
 # languages
 # erlang install fails with 'ERROR Exit code was -1073741515!' if vcredist2013 is not installed, which includes MSVCR120.dll
@@ -29,8 +43,6 @@ scoop install vcredist2013 erlang@23.1 elixir python nodejs-lts
 
 # apps
 scoop install calibre megasync slack picpick filezilla-server autohotkey exercism
-
-# refreshenv
 
 # wsl
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
