@@ -55,9 +55,12 @@ install_devtools() {
     asdf plugin-add nodejs git@github.com:asdf-vm/asdf-nodejs.git
     asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
     asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+    asdf plugin-add python
 
     echo -e '\e[0;33myou can install erlang/elixir/nodejs/dotnet-core/go with `asdf install <lang> <version>`\e[0m'
     echo -e '\e[0;33mspecify the OTP version with elixir: `asdf install elixir 1.10.4-otp-23`\e[0m'
+    echo -e '\e[0;33mset the global pythong versions with `asdf global python 3.8.6 2.7.13`\e[0m'
+    echo -e '\e[0;33mthen the `python`, `python3` and `python2` commands will use these versions\e[0m'
     
     # wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb
     # sudo dpkg -i erlang-solutions_2.0_all.deb
@@ -106,6 +109,15 @@ install_jetbrainsmono() {
   sudo fc-cache -f -v
 }
 
+install_exercism () {
+    read -p "Install exercism? (Y/n)" -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        sudo snap install exercism
+    fi
+}
+
 echo -e '\e[0;33mPreparing to setup a linux machine from a base install\e[0m'
 
 tmpDir=/tmp/setup-base
@@ -129,5 +141,6 @@ source "./setup-shell.sh"
 install_devtools
 install_docker
 install_jetbrainsmono $tmpDir
+install_exercism
 
 rm -rf $tmpDir
