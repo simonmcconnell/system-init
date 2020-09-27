@@ -46,6 +46,9 @@ scoop install calibre megasync slack picpick filezilla-server autohotkey exercis
 
 # wsl
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+# hyper-v
+sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
 
 # download config files
 curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/common/.gitconfig --output $HOME\.gitconfig
