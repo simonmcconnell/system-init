@@ -31,7 +31,7 @@ install_shell() {
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
     sudo apt-add-repository https://cli.github.com/packages
     sudo apt update
-    sudo apt install gh
+    sudo apt install gh -y
 }
 
 install_dotfiles() {
@@ -48,6 +48,7 @@ install_dotfiles() {
     ln -s $LINUX_SCRIPTS_DIR/../common/.gitconfig ~/.gitconfig
     git config --global core.autocrlf false
     ln -s $LINUX_SCRIPTS_DIR/../common/gh-config.yml ~/.config/gh/config.yml
+    ln -s $LINUX_SCRIPTS_DIR/.default-python-packages ~/.default-python-packages
 
     ## Only setup cred manager if it's wsl
     if [[ "$WSLENV" ]]
