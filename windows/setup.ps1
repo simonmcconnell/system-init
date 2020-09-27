@@ -28,7 +28,7 @@ scoop install git vcredist2019 windows-terminal vcxsrv openssh # vscode
 scoop install vcredist2013 erlang@23.1 elixir python nodejs-lts
 
 # apps
-scoop install calibre megasync slack picpick filezilla-server autohotkey
+scoop install calibre megasync slack picpick filezilla-server autohotkey exercism
 
 # refreshenv
 
