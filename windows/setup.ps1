@@ -48,7 +48,7 @@ scoop install calibre megasync slack picpick filezilla-server autohotkey exercis
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
 # download config files
-curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/windows/.gitconfig --output $HOME\.gitconfig
+curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/common/.gitconfig --output $HOME\.gitconfig
 curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/windows/settings.json --output "$env:LOCALAPPDATA\Microsoft\Windows Terminal\settings.json"
 
 # set 7zip file associations
