@@ -98,6 +98,12 @@ install_devtools() {
     # curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash
 }
 
+install_jetbrainsmono() {
+    curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip --output ~/tmp/setup-base/jetbrainsmono.zip
+    unzip ~/tmp/setup-base/jetbrainsmono.zip -d ~/.local/share/fonts
+    fc-cache -f -v
+}
+
 echo -e '\e[0;33mPreparing to setup a linux machine from a base install\e[0m'
 
 tmpDir=~/tmp/setup-base
@@ -120,5 +126,6 @@ install_git
 source "./setup-shell.sh"
 install_devtools
 install_docker
+install_jetbrainsmono
 
 rm -rf $tmpDir
