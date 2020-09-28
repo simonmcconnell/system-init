@@ -69,6 +69,9 @@ plugins=(
   globalias
   common-aliases
   asdf
+  colored-man-pages
+  colorize
+  command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
