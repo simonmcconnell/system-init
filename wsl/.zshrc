@@ -103,23 +103,25 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+# dotnet
 export PATH=~/.dotnet/tools:$PATH
 
+# erlang
 # for erlang docs - see https://github.com/asdf-vm/asdf-erlang
 export KERL_BUILD_DOCS=yes
 
-# fnm
-# export PATH=/home/aaron/.fnm:$PATH
-# eval "`fnm env --multi`"
+#exercism
+export PATH=$PATH:~/bin
 
-alias cdg="cd ~/code/github"
-
+#go
 export PATH=$PATH:/usr/local/go/bin
 export GOROOT=/usr/local/go
 export GOPATH=~/.go
+
 alias clip="clip.exe"
 alias exp="explorer.exe"
-
+alias cdc="cd ~/code"
+alias cdh="cd ~"
 
 # asdf
 . ~/.asdf/plugins/dotnet/set-dotnet-home.zsh
