@@ -59,7 +59,7 @@ install_dotfiles() {
     tmux source ~/.tmux/.tmux.conf
 }
 
-install_dotfiles
 install_shell
+install_dotfiles
 # zsh colorize plugin requires pygments or chroma
 pip install Pygments
