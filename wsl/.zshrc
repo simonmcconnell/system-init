@@ -69,6 +69,10 @@ plugins=(
   globalias
   common-aliases
   asdf
+  colored-man-pages
+  colorize
+  command-not-found
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -120,11 +124,11 @@ export GOPATH=~/.go
 
 alias clip="clip.exe"
 alias exp="explorer.exe"
-alias cdc="cd ~/code"
+alias cdg="cd ~/code/github"
 alias cdh="cd ~"
 
 # asdf
-. ~/.asdf/plugins/dotnet/set-dotnet-home.zsh
+. ~/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
 . $HOME/.asdf/asdf.sh
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
