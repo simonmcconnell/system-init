@@ -42,11 +42,13 @@ install_dotfiles() {
     WSL_SCRIPTS_DIR=~/code/github/system-init/wsl   #"$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 
     ln -s $WSL_SCRIPTS_DIR/.zshrc ~/.zshrc
+    mkdir -p ~/.tmux
     ln -s $WSL_SCRIPTS_DIR/.tmux.conf ~/.tmux/.tmux.conf
     # ln -s $WSL_SCRIPTS_DIR/.vimrc ~/.vimrc
     ln -s $WSL_SCRIPTS_DIR/.urlview ~/.urlview
     ln -s $WSL_SCRIPTS_DIR/../common/.gitconfig ~/.gitconfig
     git config --global core.autocrlf false
+    mkdir -p ~/.config/gh
     ln -s $WSL_SCRIPTS_DIR/../common/gh-config.yml ~/.config/gh/config.yml
     ln -s $WSL_SCRIPTS_DIR/.default-python-packages ~/.default-python-packages
 
@@ -59,7 +61,12 @@ install_dotfiles() {
     tmux source ~/.tmux/.tmux.conf
 }
 
-install_shell
-install_dotfiles
 # zsh colorize plugin requires pygments or chroma
 pip install Pygments
+
+install_dotfiles
+install_shell
+
+mv ~/.zshrc ~/.zshrc.oh-my-zsh
+mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+
