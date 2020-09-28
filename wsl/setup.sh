@@ -59,46 +59,6 @@ install_devtools() {
     
     # Import the Node.js release team's OpenPGP keys to main keyring:
     bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-
-
-    
-    # wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb
-    # sudo dpkg -i erlang-solutions_2.0_all.deb
-    # sudo apt update
-    # sudo apt install esl-erlang
-    # sudo apt install elixir
-
-    ## dotnet
-    # read -p "Install .NET Core? (Y/n)" -n 1 -r
-    # echo
-    # if [[ $REPLY =~ ^[Yy]$ ]]
-    # then
-    #     wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-    #     sudo dpkg -i packages-microsoft-prod.deb
-    #     sudo add-apt-repository universe --yes
-    #     sudo apt update
-    #     sudo apt install dotnet-sdk-2.2 dotnet-sdk-3.1 -y
-    
-    #     read -p "Install .NET Preview SDK? (Y/n)" -n 1 -r
-    #     echo
-    #     if [[ $REPLY =~ ^[Yy]$ ]]
-    #     then
-    #         sudo docker pull mcr.microsoft.com/dotnet/core/5.0.100-preview
-    #     fi
-    # fi
-
-    ## go
-    # read -p "Install Golang 1.15.2? (Y/n)" -n 1 -r
-    # echo
-    # if [[ $REPLY =~ ^[Yy]$ ]]
-    # then
-    #     gover=1.15.2
-    #     wget "https://storage.googleapis.com/golang/go$gover.linux-amd64.tar.gz" --output-document "$tmpDir/go.tar.gz"
-    #     sudo tar -C /usr/local -xzf "$tmpDir/go.tar.gz"
-    # fi
-
-    ## Node.js via fnm
-    # curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash
 }
 
 install_jetbrainsmono() {
