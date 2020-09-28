@@ -56,6 +56,8 @@ install_dotfiles() {
     if [[ "$WSLENV" ]]
     then
         git config --global credential.helper '/mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe'
+    else 
+        git config --global credential.helper manager
     fi
 
     tmux source ~/.tmux/.tmux.conf

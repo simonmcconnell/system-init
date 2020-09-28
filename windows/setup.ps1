@@ -63,6 +63,10 @@ Write-Host -ForegroundColor Blue "- on Editor tab, set all to vscode (likely C:\
 
 sudo $HOME\scoop\apps\7zip\current\7zFM.exe
 
+# configure git for windows
+git config --global core.autocrlf true
+git config --global credential.helper manager
+
 # $exts = '7z','zip','rar','001','xz','txz','lzma','tar','cpio','bz2','bzip2','tbz2','tbz','gz','gzip','tgz','tpz','z','taz','lzh','lhz','rpm','dep','arj','wim','swm','fat','ntfs','dmg','hfs','xar','squashfs'
 # ForEach ($ext in $etxs) {
 #    sudo cmd /c "assoc .$ext=7-Zip.$ext"

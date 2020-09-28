@@ -18,6 +18,7 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 
 [core]
+    # autocrlf: true on windows, false on linux
 	autocrlf = false
     askpass = /usr/libexec/git-core/git-gui--askpass
 
@@ -25,9 +26,11 @@
     default = simple
 
 [credential]
-	helper = /mnt/c/Program\\\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
-# Uncomment for WSL
-#    helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+    helper = /mnt/c/Users/simon/scoop/apps/git/current/mingw64/libexec/git-core/git-credential-manager.exe
+	# for windows
+    # helper = manager
+    # for WSL
+    # helper = /mnt/c/Users/simon/scoop/apps/git/current/mingw64/libexec/git-core/git-credential-manager.exe
 
 [code]
     editor = code --wait
