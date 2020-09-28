@@ -72,6 +72,7 @@ plugins=(
   colored-man-pages
   colorize
   command-not-found
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
