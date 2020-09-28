@@ -61,3 +61,5 @@ install_dotfiles() {
 
 install_dotfiles
 install_shell
+# zsh colorize plugin requires pygments or chroma
+pip install Pygments
