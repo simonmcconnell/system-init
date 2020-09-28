@@ -124,7 +124,7 @@ export GOPATH=~/.go
 
 alias clip="clip.exe"
 alias exp="explorer.exe"
-alias cdc="cd ~/code"
+alias cdg="cd ~/code/github"
 alias cdh="cd ~"
 
 # asdf
