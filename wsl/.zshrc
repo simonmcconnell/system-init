@@ -128,7 +128,7 @@ alias cdc="cd ~/code"
 alias cdh="cd ~"
 
 # asdf
-. ~/.asdf/plugins/dotnet/set-dotnet-home.zsh
+. ~/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
 . $HOME/.asdf/asdf.sh
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
