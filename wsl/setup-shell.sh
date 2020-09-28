@@ -39,16 +39,16 @@ install_dotfiles() {
 
     git clone https://github.com/simonmcconnell/system-init ~/code/github/system-init
 
-    LINUX_SCRIPTS_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+    WSL_SCRIPTS_DIR=~/code/github/system-init/wsl   #"$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 
-    ln -s $LINUX_SCRIPTS_DIR/.zshrc ~/.zshrc
-    ln -s $LINUX_SCRIPTS_DIR/.tmux.conf ~/.tmux/.tmux.conf
-    # ln -s $LINUX_SCRIPTS_DIR/.vimrc ~/.vimrc
-    ln -s $LINUX_SCRIPTS_DIR/.urlview ~/.urlview
-    ln -s $LINUX_SCRIPTS_DIR/../common/.gitconfig ~/.gitconfig
+    ln -s $WSL_SCRIPTS_DIR/.zshrc ~/.zshrc
+    ln -s $WSL_SCRIPTS_DIR/.tmux.conf ~/.tmux/.tmux.conf
+    # ln -s $WSL_SCRIPTS_DIR/.vimrc ~/.vimrc
+    ln -s $WSL_SCRIPTS_DIR/.urlview ~/.urlview
+    ln -s $WSL_SCRIPTS_DIR/../common/.gitconfig ~/.gitconfig
     git config --global core.autocrlf false
-    ln -s $LINUX_SCRIPTS_DIR/../common/gh-config.yml ~/.config/gh/config.yml
-    ln -s $LINUX_SCRIPTS_DIR/.default-python-packages ~/.default-python-packages
+    ln -s $WSL_SCRIPTS_DIR/../common/gh-config.yml ~/.config/gh/config.yml
+    ln -s $WSL_SCRIPTS_DIR/.default-python-packages ~/.default-python-packages
 
     ## Only setup cred manager if it's wsl
     if [[ "$WSLENV" ]]
