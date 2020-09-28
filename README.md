@@ -18,7 +18,7 @@ mostly stolen from [aaronpowell's repo](https://github.com/aaronpowell/system-in
    `curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/wsl/setup.sh | bash`
 
 2. install languages with [asdf](https://asdf-vm.com/)
-    
+    ```
     asdf plugin list
     
     asdf list all elixir
@@ -33,4 +33,5 @@ mostly stolen from [aaronpowell's repo](https://github.com/aaronpowell/system-in
     asdf global erlang 23.1
     asdf global elixir 1.10.4
     asdf global python 3.8.5 2.7.18
+    ```
     
