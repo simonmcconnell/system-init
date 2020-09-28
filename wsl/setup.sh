@@ -60,10 +60,7 @@ install_devtools() {
     # Import the Node.js release team's OpenPGP keys to main keyring:
     bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
-    echo -e '\e[0;33myou can install erlang/elixir/nodejs/dotnet-core/go with `asdf install <lang> <version>`\e[0m'
-    echo -e '\e[0;33mspecify the OTP version with elixir: `asdf install elixir 1.10.4-otp-23`\e[0m'
-    echo -e '\e[0;33mset the global pythong versions with `asdf global python 3.8.6 2.7.13`\e[0m'
-    echo -e '\e[0;33mthen the `python`, `python3` and `python2` commands will use these versions\e[0m'
+
     
     # wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb
     # sudo dpkg -i erlang-solutions_2.0_all.deb
@@ -117,7 +114,14 @@ install_exercism () {
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        sudo snap install exercism
+        wget https://github.com/exercism/cli/releases/download/v3.0.13/exercism-linux-64bit.tgz
+        tar -xf exercism-linux-64bit.tgz -C $1/exercism
+        mkdir -p ~/bin
+        mv $1/exercism/exercism ~/bin
+        read -p "Enter exercism token from http://exercism.io/my/settings: " token
+        exercism configure --token=$token
+        exercism configure --workspace ~/code/github/exercism
+        git clone https://github.com/simonmcconnell/exercism ~/code/github/exercism
     fi
 }
 
@@ -136,14 +140,20 @@ sudo apt upgrade -y
 ## Utilities
 sudo apt install unzip curl jq -y
 
-# Create standard github clone location
+# Create folder for code from github
 mkdir -p ~/code/github
 
 install_git
+wget https://raw.githubusercontent.com/simonmcconnell/system-init/master/wsl/setup-shell.sh
 source "./setup-shell.sh"
 install_devtools
 install_docker
 install_jetbrainsmono $tmpDir
-install_exercism
+install_exercism $tmpDir
+
+echo -e '\e[0;33mInstall erlang/elixir/nodejs/dotnet-core/go with `asdf install <lang> <version>`\e[0m'
+echo -e '\e[0;33m  Elixir: specify the OTP version: `asdf install elixir 1.10.4-otp-23`\e[0m'
+echo -e '\e[0;33m  Python: set the global versions w/`asdf global python 3.8.6 2.7.13`\e[0m'
+echo -e '\e[0;33m    then the `python`, `python3` and `python2` commands will use these versions\e[0m'
 
 rm -rf $tmpDir
