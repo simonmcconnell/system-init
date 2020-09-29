@@ -39,16 +39,17 @@ Install-VSCode
 
 # languages
 # erlang install fails with 'ERROR Exit code was -1073741515!' if vcredist2013 is not installed, which includes MSVCR120.dll
-scoop install vcredist2013 erlang@23.1 elixir python nodejs-lts
+scoop install vcredist2013 erlang@23.1 elixir python nodejs-lts nim
 
 # apps
-scoop install calibre megasync slack picpick filezilla-server autohotkey exercism
+scoop install calibre megasync slack picpick filezilla-server autohotkey exercism nimbletext beyondcompare
 
 # wsl
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 # hyper-v
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
+Write-Host -ForegroundColor Red "!!! RESTART REQUIRED AFTER ENABLING WSL & HYPER-V !!!"
 
 # download config files
 curl https://raw.githubusercontent.com/simonmcconnell/system-init/master/common/.gitconfig --output $HOME\.gitconfig
